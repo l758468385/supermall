@@ -1,9 +1,10 @@
 <template>
   <div id="app">
+    <NavBar class="navbar">
+      <template v-slot:center>购物街</template>
+    </NavBar>
     <router-view></router-view>
-    {{ count }}
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
+
     <TabBar></TabBar>
   </div>
 </template>
@@ -11,25 +12,29 @@
 
 <script>
 import TabBar from "./components/TabBar/TabBar";
+import NavBar from "./components/NavBar/Navbar"
+
 export default {
   components: {
     TabBar,
+    NavBar
+
   },
   computed: {
-    count() {
-      return this.$store.state.count;
-    },
+
   },
   methods: {
-    increment() {
-      this.$store.commit("increment");
-    },
-    decrement() {
-      this.$store.commit("decrement");
-    },
+
   },
 };
 </script>
 
 <style lang="less">
+@import "./assets/css/base.css";
+.navbar {
+  background-color: var(--color-tint);
+  color: #fff;
+
+}
 </style>
+              

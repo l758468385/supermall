@@ -5,8 +5,19 @@
 </template>
 
 <script>
+import { getHomeMultidate } from "@/api/home";
 export default {
-  name:'Category'
+  name: "Category",
+  methods: {
+    getSwiper() {
+      getHomeMultidate().then((res) => {
+        console.log(res);
+      });
+    },
+  },
+  created() {
+    this.getSwiper();
+  },
 };
 </script>
 

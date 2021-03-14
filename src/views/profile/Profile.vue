@@ -1,15 +1,15 @@
 <template>
-  <div class="profile">
-    <p>握手Profile</p>
-  </div>
+<div></div>
 </template>
-
 <script>
-export default {
-  
-}
-</script>
 
+export default {
+  components: {
+
+  },
+  mounted() {},
+};
+</script>
 <style lang="less" scoped>
 
 </style>

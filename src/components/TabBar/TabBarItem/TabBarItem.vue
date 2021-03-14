@@ -1,6 +1,10 @@
 <template>
   <div class="TabBarItem">
-    <div class="tabitem" @click="itemClick" :class="{active:this.$route.path === path}">
+    <div
+      class="tabitem"
+      @click="itemClick"
+      :class="{ active: this.$route.path === path }"
+    >
       <div><slot name="tab_img"></slot></div>
       <div><slot name="tab_text"></slot></div>
     </div>
@@ -11,28 +15,26 @@
 export default {
   props: {
     path: {
-      Type:String,
-      
-
-    }
+      Type: String,
+    },
   },
   data() {
-    return {
-      
-    };
+    return {};
   },
   methods: {
     itemClick() {
       // 防止重复路由跳转，catch一下异常
-      this.$router.push(this.path).catch(()=> {})
-
+      if (this.$route.path !== this.path) {
+        this.$router.push(this.path);
+        return console.log(1);
+      }
     },
   },
 };
 </script>
 
 <style lang="less" scoped>
-.active{
+.active {
   color: #f12e62;
 }
 </style>
