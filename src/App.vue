@@ -1,40 +1,34 @@
 <template>
   <div id="app">
-    <NavBar class="navbar">
-      <template v-slot:center>购物街</template>
-    </NavBar>
-    <router-view></router-view>
+    <keep-alive exclude="Detail">
+      <router-view></router-view>
+    </keep-alive>
 
-    <TabBar></TabBar>
+    <TabBar v-if="currentRoute"></TabBar>
   </div>
 </template>
 
 
 <script>
 import TabBar from "./components/TabBar/TabBar";
-import NavBar from "./components/NavBar/Navbar"
-
 export default {
   components: {
     TabBar,
-    NavBar
-
   },
   computed: {
-
+    currentRoute() {
+      return (
+        this.$route.path === "/home" ||
+        this.$route.path === "/category" ||
+        this.$route.path === "/profile" ||
+        this.$route.path === "/cart"
+      )},
   },
-  methods: {
-
-  },
+  methods: {},
 };
 </script>
 
 <style lang="less">
 @import "./assets/css/base.css";
-.navbar {
-  background-color: var(--color-tint);
-  color: #fff;
-
-}
 </style>
               

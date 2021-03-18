@@ -48,6 +48,7 @@ export default {
   height: 49px;
   box-shadow: 0 -1px 1px rgba(100, 100, 100, 0.2);
   background-color: #f6f6f6;
+  z-index: 16;
   .TabBarItem {
     flex: 1;
   }

@@ -35,6 +35,6 @@ export default {
 
 <style lang="less" scoped>
 .active {
-  color: #f12e62;
+  color: #ff8198;
 }
 </style>

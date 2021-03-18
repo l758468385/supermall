@@ -8,7 +8,7 @@
       >
         <div>
           <a :href="item.link">
-            <img :src="item.image" alt="" />
+            <img :src="item.image" alt="" @load="imgLoad"/>
             <div class="title">
               <span >{{ item.title }}</span>
             </div>
@@ -30,6 +30,12 @@ export default {
     return {
       a: [1, 23, 4, 5],
     };
+  },
+
+  methods: {
+    imgLoad () {
+      this.$emit('recommondImgLoad')
+    }
   },
 };
 </script>

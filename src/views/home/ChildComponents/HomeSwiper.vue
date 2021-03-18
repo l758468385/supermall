@@ -2,7 +2,7 @@
   <div>
     <swiper :options="swiperOption" class="swiper" ref="mySwiper">
       <swiper-slide v-for="(item, index) in SwiperImgList" :key="index"
-        ><img :src="item.image" alt=""
+        ><img @load="imgageLoad" :src="item.image" alt=""
       /></swiper-slide>
       <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
       <div class="swiper-pagination" slot="pagination"></div>
@@ -56,12 +56,21 @@ export default {
         loop: true,
         autoplay: true,
       },
+      isLoad:false
     };
   },
-
+  methods: {
+    imgageLoad() {
+      // if (!this.isLoad) {
+        this.$emit("swiperImageLoad");
+        console.log('swiperimgload');
+        this.isLoad = true;
+      // }
+    },
+  },
   mounted() {
     /* 拿到mySwiper，定义首页显示第几张图片 */
-    this.$refs.mySwiper.$swiper.slideTo(1, 1000, false)
+    this.$refs.mySwiper.$swiper.slideTo(1, 1000, false);
   },
 };
 </script>
