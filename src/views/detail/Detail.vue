@@ -168,20 +168,16 @@ export default {
     addCart() {
       // 获取购物车需要展示的信息
       const product = {};
-      product.image = this.topImages[0];
+      product.image = this.topImage[0];
       product.title = this.goods.title;
       product.desc = this.goods.desc;
-      product.price = this.goods.realPrice;
+      product.price = this.goods.nowPrice;
       product.iid = this.iid;
       // 放入到购物车中
-      if (product.iid) {
-        this.$store.dispatch("addCart", product).then((res) => {
-          this.$toast.show(res, 1500);
-        });
-      } else {
-        this.$toast.show("添加失败请刷新重试", 1500);
-      }
+      this.$store.dispatch('addCart',product)
     },
+    // 立即购买
+    buyNow() {},
     /* 防抖函数 */
     debounce(func, delay) {
       let timer = null;
